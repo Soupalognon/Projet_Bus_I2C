@@ -14,6 +14,7 @@
       <itemPath>fonctions_deplacements.h</itemPath>
       <itemPath>gestion_AX12.h</itemPath>
       <itemPath>pwm.h</itemPath>
+      <itemPath>Config_robots.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -26,14 +27,17 @@
       <itemPath>Uart.c</itemPath>
       <itemPath>interruptions.c</itemPath>
       <itemPath>I2C.c</itemPath>
+      <itemPath>system.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
                    projectFiles="false">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
-    <itemPath>system.c</itemPath>
   </logicalFolder>
+  <sourceRootList>
+    <Elem>.</Elem>
+  </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
     <conf name="default" type="2">

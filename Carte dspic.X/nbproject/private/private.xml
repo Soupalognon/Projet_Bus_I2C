@@ -4,7 +4,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/azerty/Documents/MPLABXProjects/Carte%20dspic.X/system.h</file>
+            <file>file:/C:/Users/azerty/Documents/GitHub/Projet_Bus_I2C/Carte%20dspic.X/Config_robots.h</file>
+            <file>file:/C:/Users/azerty/Documents/GitHub/Projet_Bus_I2C/Carte%20dspic.X/gestion_AX12.h</file>
+            <file>file:/C:/Users/azerty/Documents/GitHub/Projet_Bus_I2C/Carte%20dspic.X/system.h</file>
+            <file>file:/C:/Users/azerty/Documents/GitHub/Projet_Bus_I2C/Carte%20dspic.X/pwm.h</file>
+            <file>file:/C:/Users/azerty/Documents/GitHub/Projet_Bus_I2C/Carte%20dspic.X/I2C.h</file>
+            <file>file:/C:/Users/azerty/Documents/GitHub/Projet_Bus_I2C/Carte%20dspic.X/Uart.h</file>
         </group>
     </open-files>
 </project-private>

@@ -29,7 +29,7 @@ extern "C" {
     #include "gestion_AX12.h"
     #include "autom.h"
  #include "pwm.h"
-//#include "Config_robots.h"
+#include "Config_robots.h"
 
 /******************************************************************************/
 /***************************** Defines ****************************************/
