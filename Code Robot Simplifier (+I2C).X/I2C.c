@@ -83,7 +83,7 @@ int envoiInformationI2C(unsigned int ID, unsigned int data) //En tant que MAITRE
         
         I2C1TRN = ID;    //ID de l'esclave.
         //while (I2C1STATbits.TBF);
-        while(I2C1STATbits.TRSTAT);       //Attend que l'envoi soit fini TRN + ACK.    Passe à 0 quand fini      
+        while(I2C1STATbits.TRSTAT );       //Attend que l'envoi soit fini TRN + ACK.    Passe à 0 quand fini      
         
         I2C1TRN = data; //Envoi alors la donnée
         //while (I2C1STATbits.TBF);

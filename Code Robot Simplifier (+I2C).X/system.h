@@ -23,14 +23,6 @@ extern "C" {
     #include "Uart.h"
     #include "interruptions.h"
     #include "I2C.h"
-#include "codeurs.h"
-#include "asserv.h"
-#include "fonctions_deplacements.h"
-    #include "gestion_AX12.h"
-    #include "autom.h"
- #include "pwm.h"
-#include "Config_robots.h"
-
 /******************************************************************************/
 /***************************** Defines ****************************************/
 /******************************************************************************/

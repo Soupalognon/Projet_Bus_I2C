@@ -10,7 +10,7 @@
  *
  ******************************************************************************/
 
-//#include "system.h"
+#include "system.h"
 #include <xc.h>
 
 /******************************************************************************/
@@ -65,36 +65,6 @@
 /******************************************************************************/
 /********************* DECLARATION DES VARIABLES GLOBALES *********************/
 /******************************************************************************/
-    uint8_t COULEUR;
-
-    uint8_t DETECTION;
-    uint8_t EVITEMENT_ADV_AVANT;
-    uint8_t EVITEMENT_ADV_ARRIERE;
-    uint8_t STRATEGIE_EVITEMENT;
-    uint16_t FLAG_ACTION;
-    uint8_t FLAG_EVITEMENT_STRATEGIQUE;
-    uint8_t ETAT_AUTOM;
-    uint16_t COMPTEUR_MARCHE;
-    uint8_t COMPTEUR_TEMPS_MATCH;
-
-
-    int obstacle[30][20];
-	int calcul_en_cours=OFF;
-    int curseur;
-    int curseur_obstacle;
-    int itineraire[nb_point_max][3];
-    int itineraire_basique[nb_point_max][3];
-    int itineraire_court[nb_point_max][3];
-    int point_obstacle[nb_point_max][3];
-    int x_actuel;
-    int y_actuel;
-    int x_obj;
-    int y_obj;
-    int id_evitement = 0;
-    int id_evitement_initial = 0;
-    int chemin_court=0;
-    uint16_t compteur_evitement=0;
-    int precedent_obstacle[7];
 
 
 

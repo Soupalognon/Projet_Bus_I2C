@@ -22,54 +22,30 @@ void init_system (void)
 {
     init_clock();
 
-    OVERFLOW_CODEUR[CODEUR_D] = PAS_D_OVERFLOW_CODEUR;
-    OVERFLOW_CODEUR[CODEUR_G] = PAS_D_OVERFLOW_CODEUR;
-
-    position[CODEUR_D].ancien = 0;
-    position[CODEUR_G].ancien = 0;
-    position[CODEUR_D].nouvelle = 0;
-    position[CODEUR_G].nouvelle = 0;
-    
     config_timer_10ms();
     config_timer_5ms();
     config_timer_90s();
 
+    /*
+            ICI on met l'init de l'interruption I2C (pour la réception)
+     */
+    
     ConfigMapping ();
     ConfigPorts ();
-    ConfigQEI ();
     ConfigInterrupt ();
-    ConfigPWM();
     //ConfigADC();
 
     InitUART(UART_XBEE, 115200);
     InitUART(UART_AX12, 500000);
-
-    // Evitement
-    DETECTION = OFF;
-    EVITEMENT_ADV_AVANT = OFF;
-    EVITEMENT_ADV_ARRIERE = OFF;
-    STRATEGIE_EVITEMENT = STOP;
-    FLAG_EVITEMENT_STRATEGIQUE = NE_RIEN_FAIRE;
-
-    // AUTOMS
-    FLAG_ACTION = NE_RIEN_FAIRE;
-    ETAT_AUTOM = NE_RIEN_FAIRE;
-    COULEUR = JAUNE;
-    COMPTEUR_MARCHE = 0;
-
-    COMPTEUR_TEMPS_MATCH = 0;
-
+    
+    InitI2C(400000, 130*pow(10, -9));  //Fscl = 400KHz   Delay = 130ns pour la durée de chaque 1 logique 
+        
     TIMER_5ms = ACTIVE;
     TIMER_10ms = ACTIVE;
-
-#ifdef PETIT_ROBOT
-    TRISCbits.TRISC2 = 0;
-#endif
-#ifdef GROS_ROBOT
-    //TRISAbits.TRISA3 = 0;
-#endif
     
-    init_flag();
+    /*
+            start_timer_90s();      //Lorsqu'on veut chronométrer et arreter le robot
+     */
 }
 
 
@@ -77,6 +53,7 @@ void init_system (void)
 /******************************************************************************/
 /***************************** Configurations Timers **************************/
 /******************************************************************************/
+
 void config_timer_5ms()
 {
     //Timer de 5,00373 ms
@@ -671,62 +648,5 @@ void ConfigInterrupt (void)
 
 void ConfigADC (void)
 {
-#ifdef CARTE_V2
-    if (CAPTEUR1_ANALOGIQUE == ANALOGIQUE ||CAPTEUR2_ANALOGIQUE == ANALOGIQUE || CAPTEUR3_ANALOGIQUE == ANALOGIQUE)
-    {
-      // Entrée digitale / Analogique
-        AD1PCFGLbits.PCFG0 = 0;
-        AD1PCFGLbits.PCFG1 = 0;
-        AD1PCFGLbits.PCFG2 = 0;
-        AD1PCFGLbits.PCFG3 = 0;
-        AD1PCFGLbits.PCFG4 = 0;
-        AD1PCFGLbits.PCFG5 = 0;
-        AD1PCFGLbits.PCFG6 = CAPTEUR1_ANALOGIQUE;
-        AD1PCFGLbits.PCFG7 = CAPTEUR2_ANALOGIQUE;
-        AD1PCFGLbits.PCFG8 = CAPTEUR3_ANALOGIQUE;
-
-        /*AD1CHS0bits.CH0NB = 0;                                  // VREF- = 0V
-        AD1CHS0bits.CH0NA = 0;                                  // VREF- = 0V
-
-        if (CAPTEUR1_ANALOGIQUE == ANALOGIQUE)
-        {
-            AD1CHS0bits.CH0SB = 0b00110;
-            AD1CHS0bits.CH0SA = 0b00110;
-        }
-        else if (CAPTEUR2_ANALOGIQUE == ANALOGIQUE)
-        {
-            AD1CHS0bits.CH0SB = 0b00111;
-            AD1CHS0bits.CH0SA = 0b00111;
-        }
-        else if (CAPTEUR3_ANALOGIQUE == ANALOGIQUE)
-        {
-            AD1CHS0bits.CH0SB = 0b 1000;
-            AD1CHS0bits.CH0SA = 0b 1000;
-        }*/
-
-        AD1CON2bits.VCFG = 0;                                   // VDD, VSS
-        AD1CON2bits.SMPI = 0;                                   // Incréement du DMA à chaque échantillon
-        AD1CON2bits.BUFM = 0;                                   // On commence à 0x0
-        AD1CON2bits.ALTS = 0;                                   //
-        AD1CON2bits.CSCNA = 1;                                   //
-
-        AD1CON3bits.ADRC = 0;
-        AD1CON3bits.ADCS = 254;                                 // TAD = 25 * TCY
-
-        AD1CON1bits.ADDMABM = 0;                                // ?
-        AD1CON1bits.AD12B = 1;                                  // 1 channel de 12 bits
-        AD1CON1bits.FORM = 0b00;                                // Fractionnaire non signé Dout = dddd dddd dddd 0000
-        AD1CON1bits.SSRC = 0b111;                               // Auto convert
-        AD1CON1bits.ASAM = 1;                                   // Auto reload
-
-
-        AD1CON3bits.SAMC = 0;//0b11111;                             // Sample Time = 31 TAD;
-
-        AD1CON4bits.DMABL = 0;                                  // 1 mot dans le buffer
-
-        AD1CON1bits.ADON = 1;                                   // ADC ON
-
-    }
-#endif
-    
+    Nop();
 }
