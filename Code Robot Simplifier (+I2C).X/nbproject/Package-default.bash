@@ -10,9 +10,9 @@ CND_CONF=default
 CND_DISTDIR=dist
 TMPDIR=build/${CND_CONF}/${IMAGE_TYPE}/tmp-packaging
 TMPDIRNAME=tmp-packaging
-OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/Carte_dspic.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-OUTPUT_BASENAME=Carte_dspic.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-PACKAGE_TOP_DIR=cartedspic.x/
+OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/Code_Robot_Simplifier___I2C_.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+OUTPUT_BASENAME=Code_Robot_Simplifier___I2C_.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+PACKAGE_TOP_DIR=coderobotsimplifier(+i2c).x/
 
 # Functions
 function checkReturnCode
@@ -57,15 +57,15 @@ mkdir -p ${TMPDIR}
 
 # Copy files and create directories and links
 cd "${TOP}"
-makeDirectory ${TMPDIR}/cartedspic.x/bin
+makeDirectory ${TMPDIR}/coderobotsimplifier(+i2c).x/bin
 copyFileToTmpDir "${OUTPUT_PATH}" "${TMPDIR}/${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}" 0755
 
 
 # Generate tar file
 cd "${TOP}"
-rm -f ${CND_DISTDIR}/${CND_CONF}/package/cartedspic.x.tar
+rm -f ${CND_DISTDIR}/${CND_CONF}/package/coderobotsimplifier(+i2c).x.tar
 cd ${TMPDIR}
-tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/cartedspic.x.tar *
+tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/coderobotsimplifier(+i2c).x.tar *
 checkReturnCode
 
 # Cleanup

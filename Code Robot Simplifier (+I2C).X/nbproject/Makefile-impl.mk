@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=Carte dspic.X
+PROJECTNAME=Code Robot Simplifier (+I2C).X
 
 # Active Configuration
 DEFAULTCONF=default
